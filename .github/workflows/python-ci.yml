@@ -11,10 +11,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: '3.12'
 
@@ -23,3 +23,10 @@ jobs:
 
       - name: Run tests
         run: python -m pytest
+
+      - name: Create application package
+        run: |
+          mkdir build
+          cp app.py build/
+          cp requirements.txt build/
+          zip -r python-app.zip build/
