@@ -30,3 +30,9 @@ jobs:
           cp app.py build/
           cp requirements.txt build/
           zip -r python-app.zip build/
+      
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: python-app
+          path: python-app.zip
